@@ -7,6 +7,7 @@ package proyectobiblioteca;
 
 import AccesoDatos.*;
 import Clases.*;
+import java.math.BigInteger;
 //import java.sql.Connection;
 import java.sql.*;
 import java.util.List;
@@ -52,10 +53,42 @@ public class ProyectoBiblioteca {
         
         
         //--------------------PRUEBA LISTAR LIBROS-------------------------------------
-        LibroData ld = new LibroData (); 
-        List<Libro> libros = ld.listarLibros();
-        System.out.println(libros);
+        //LibroData ld = new LibroData (); 
+        //List<Libro> libros = ld.listarLibros();
+        //System.out.println(libros);
         
+        //----------------------PRUEBA CREAR LECTOR---------------------------------------
+        //LectorData ld = new LectorData(); 
+        //Lector esteban = new Lector ("Esteban Perez", 34963258, "Independencia 1254 - Río Cuarto, Córdoba", 3584741258L, true, "ep@gmail.com");
+        //ld.crearLector(esteban);
+        //Lector Teresa = new Lector ("Teresa Rodriguez", 95369850, "Calle tanto 159 - Buenos Aires", new BigInteger("11698741236"), true, "tr@gmail.com");
+        //ld.crearLector(Teresa);
+        //Lector maria = new Lector ("Maria Suarez", 30170589, "9 de Julio 585 - Pilar - Buenos Aires", new BigInteger("11632145678"), true, "ms@gmail.com");
+        //LectorData ld = new LectorData ();
+        //ld.crearLector(maria);
+        
+        
+        
+        //--------------------PRUEBA MODIFICAR LECTOR-----------------------------------------
+        //LectorData lectorD = new LectorData(); 
+        //Lector jonathan = new Lector (1, "Jonathan Dreiszigacker", 24963852, "Miguel David 91 - Entre Ríos", new BigInteger ("3434690604"), true, "jd@gmail.com");
+        //lectorD.modificarLector(jonathan);
+        
+        
+        
+        // ------------------------PRUEBA BUSCAR LECTOR POR DNI Y POR ID -------------------------------
+        //LectorData ld = new LectorData(); 
+        //Lector ariel = ld.buscarLectorPorDni(36850403);
+        //System.out.println(ariel);
+        //Lector teresa = ld.buscarLectorPorId(5);
+        //System.out.println(teresa);
+        
+        
+        //------------------------PRUEBA LISTAR LECTORES---------------------------------------------------
+        LectorData ld = new LectorData();
+        List<Lector> lectores = ld.listarLectores();
+        System.out.println(lectores);
     }
+    
     
 }

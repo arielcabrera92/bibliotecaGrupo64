@@ -3,41 +3,40 @@ package Clases;
 
 
 public class Ejemplar {
-    private int idLibro;
-    private boolean estado;
+    private int idEjemplar;
+    private String estado;
     private int cantidad ;
     private Libro libro; 
-    
+
     public Ejemplar() {
     }
-    
-    public Ejemplar(int idLibro, boolean estado, int cantidad, Libro libro) {
-        this.idLibro = idLibro;
-        this.estado = estado;
-        this.cantidad = cantidad;
-        this.libro = libro; 
-    }
 
-    public Ejemplar(boolean estado, int cantidad, Libro libro) {
+    public Ejemplar(String estado, int cantidad, Libro libro) {
         this.estado = estado;
         this.cantidad = cantidad;
         this.libro = libro;
     }
-    
 
-    public int getIdLibro() {
-        return idLibro;
+    public Ejemplar(int idEjemplar, String estado, int cantidad, Libro libro) {
+        this.idEjemplar = idEjemplar;
+        this.estado = estado;
+        this.cantidad = cantidad;
+        this.libro = libro;
     }
 
-    public void setIdLibro(int idLibro) {
-        this.idLibro = idLibro;
+    public int getIdEjemplar() {
+        return idEjemplar;
     }
 
-    public boolean isEstado() {
+    public void setIdEjemplar(int idEjemplar) {
+        this.idEjemplar = idEjemplar;
+    }
+
+    public String isEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 
@@ -57,10 +56,12 @@ public class Ejemplar {
         this.libro = libro;
     }
     
+    
+    
    
     @Override
     public String toString() {
-        return "Ejemplar{" + "idLibro=" + idLibro + ", estado=" + estado + ", cantidad=" + cantidad + '}';
+        return "Ejemplar: " + "idLibro: " + idEjemplar + " - estado: " + estado + " - cantidad: " + cantidad;
     }
     
 }

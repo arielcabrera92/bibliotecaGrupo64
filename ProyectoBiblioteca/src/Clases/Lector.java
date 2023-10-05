@@ -1,19 +1,24 @@
 
 package Clases;
 
+import java.math.BigInteger;
+
+
+
 
 public class Lector {
+    private int idLector;
     private String nombre;
     private int dni;
     private String domicilio;
-    private int telefono;
+    private BigInteger telefono;
     private boolean estado;
     private String mail;
 
     public Lector() {
     }
 
-    public Lector(String nombre, int dni, String domicilio, int telefono, boolean estado, String mail) {
+    public Lector(String nombre, int dni, String domicilio, BigInteger telefono, boolean estado, String mail) {
         this.nombre = nombre;
         this.dni = dni;
         this.domicilio = domicilio;
@@ -21,6 +26,25 @@ public class Lector {
         this.estado = estado;
         this.mail = mail;
     }
+
+    public Lector(int idLector, String nombre, int dni, String domicilio, BigInteger telefono, boolean estado, String mail) {
+        this.idLector = idLector;
+        this.nombre = nombre;
+        this.dni = dni;
+        this.domicilio = domicilio;
+        this.telefono = telefono;
+        this.estado = estado;
+        this.mail = mail;
+    }
+
+    public int getIdLector() {
+        return idLector;
+    }
+
+    public void setIdLector(int idLector) {
+        this.idLector = idLector;
+    }
+    
 
     public String getNombre() {
         return nombre;
@@ -46,11 +70,11 @@ public class Lector {
         this.domicilio = domicilio;
     }
 
-    public int getTelefono() {
+    public BigInteger getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(BigInteger telefono) {
         this.telefono = telefono;
     }
 
@@ -69,10 +93,12 @@ public class Lector {
     public void setMail(String mail) {
         this.mail = mail;
     }
+
+    
     
     @Override
     public String toString() {
-        return "Lector{" + "nombre=" + nombre + ", dni=" + dni + ", domicilio=" + domicilio + ", telefono=" + telefono + ", estado=" + estado + ", mail=" + mail + '}';
+        return "ID: " + idLector + " - Nombre: " + nombre + " - DNI: " + dni + " - Domicilio: " + domicilio + " - Teléfono: " + telefono + " - Estado: " + estado + " - Mail: " + mail;
     }
     
 }
