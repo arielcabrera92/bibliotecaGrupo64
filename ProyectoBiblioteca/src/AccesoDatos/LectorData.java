@@ -158,7 +158,7 @@ public class LectorData {
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla libros "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla libros "+ex.getMessage());
         }
         return lectores;
     }
