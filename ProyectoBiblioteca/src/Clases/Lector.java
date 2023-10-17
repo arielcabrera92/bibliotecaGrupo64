@@ -2,6 +2,9 @@
 package Clases;
 
 import java.math.BigInteger;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 
 
@@ -9,16 +12,16 @@ import java.math.BigInteger;
 public class Lector {
     private int idLector;
     private String nombre;
-    private int dni;
+    private String dni;
     private String domicilio;
-    private BigInteger telefono;
+    private String telefono;
     private boolean estado;
     private String mail;
 
     public Lector() {
     }
 
-    public Lector(String nombre, int dni, String domicilio, BigInteger telefono, boolean estado, String mail) {
+    public Lector(String nombre, String dni, String domicilio, String telefono, boolean estado, String mail) {
         this.nombre = nombre;
         this.dni = dni;
         this.domicilio = domicilio;
@@ -27,7 +30,7 @@ public class Lector {
         this.mail = mail;
     }
 
-    public Lector(int idLector, String nombre, int dni, String domicilio, BigInteger telefono, boolean estado, String mail) {
+    public Lector(int idLector, String nombre, String dni, String domicilio, String telefono, boolean estado, String mail) {
         this.idLector = idLector;
         this.nombre = nombre;
         this.dni = dni;
@@ -54,11 +57,11 @@ public class Lector {
         this.nombre = nombre;
     }
 
-    public int getDni() {
+    public String getDni() {
         return dni;
     }
 
-    public void setDni(int dni) {
+    public void setDni(String dni) {
         this.dni = dni;
     }
 
@@ -70,11 +73,11 @@ public class Lector {
         this.domicilio = domicilio;
     }
 
-    public BigInteger getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(BigInteger telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -93,6 +96,7 @@ public class Lector {
     public void setMail(String mail) {
         this.mail = mail;
     }
+
 
     
     

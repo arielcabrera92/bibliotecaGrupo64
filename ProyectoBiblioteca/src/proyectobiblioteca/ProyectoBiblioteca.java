@@ -66,6 +66,9 @@ public class ProyectoBiblioteca {
         //Lector maria = new Lector ("Maria Suarez", 30170589, "9 de Julio 585 - Pilar - Buenos Aires", new BigInteger("11632145678"), true, "ms@gmail.com");
         //LectorData ld = new LectorData ();
         //ld.crearLector(maria);
+        //LectorData ld = new LectorData(); 
+        //Lector tomas = new Lector ("Tomás Martinez", "8147447", "Espejo 567 - Guaymallén - Mendoza", "2615897412", true, "tm@gmail.com");
+        //ld.crearLector(tomas);
         
         
         
@@ -85,9 +88,33 @@ public class ProyectoBiblioteca {
         
         
         //------------------------PRUEBA LISTAR LECTORES---------------------------------------------------
-        LectorData ld = new LectorData();
-        List<Lector> lectores = ld.listarLectores();
-        System.out.println(lectores);
+        //LectorData ld = new LectorData();
+        //List<Lector> lectores = ld.listarLectores();
+        //System.out.println(lectores);
+        
+        
+        //--------------------------PRUEBA CREAR EJEMPLAR---------------------------------------------------
+        //LibroData ld = new LibroData(); 
+        //EjemplarData ed = new EjemplarData(); 
+        //Libro jdt = ld.buscarLibroPorId(3);
+        //Ejemplar ejemplar = new Ejemplar(EstadoEjemplar.DISPONIBLE, 3, jdt);
+        //ed.crearEjemplar(ejemplar);
+        
+        //----------------------------PRUEBA BUSCAR EJEMPLAR---------------------
+        //EjemplarData ed = new EjemplarData();
+        //System.out.println(ed.buscarEjemplarPorId(3));
+        
+        //---------------------------PRUEBA SOLICITAR LIBRO------------------------------------------
+        
+        
+        LectorData ld = new LectorData(); 
+        Lector lector = ld.buscarLectorPorDni(36850403); 
+        EjemplarData ed = new EjemplarData(); 
+        Ejemplar ejemplar = ed.buscarEjemplarPorId(3); 
+        PrestamoData pd = new PrestamoData(); 
+        pd.devolverLibro(lector, ejemplar);
+        
+        
     }
     
     

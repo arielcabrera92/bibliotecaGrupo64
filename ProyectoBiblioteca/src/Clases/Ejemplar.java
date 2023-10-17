@@ -4,20 +4,20 @@ package Clases;
 
 public class Ejemplar {
     private int idEjemplar;
-    private String estado;
+    private EstadoEjemplar estado;
     private int cantidad ;
     private Libro libro; 
 
     public Ejemplar() {
     }
 
-    public Ejemplar(String estado, int cantidad, Libro libro) {
+    public Ejemplar(EstadoEjemplar estado, int cantidad, Libro libro) {
         this.estado = estado;
         this.cantidad = cantidad;
         this.libro = libro;
     }
 
-    public Ejemplar(int idEjemplar, String estado, int cantidad, Libro libro) {
+    public Ejemplar(int idEjemplar, EstadoEjemplar estado, int cantidad, Libro libro) {
         this.idEjemplar = idEjemplar;
         this.estado = estado;
         this.cantidad = cantidad;
@@ -32,11 +32,11 @@ public class Ejemplar {
         this.idEjemplar = idEjemplar;
     }
 
-    public String isEstado() {
+    public EstadoEjemplar getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(EstadoEjemplar estado) {
         this.estado = estado;
     }
 
@@ -55,6 +55,8 @@ public class Ejemplar {
     public void setLibro(Libro libro) {
         this.libro = libro;
     }
+
+    
     
     
     

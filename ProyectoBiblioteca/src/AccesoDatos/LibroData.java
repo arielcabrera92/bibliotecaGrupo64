@@ -114,6 +114,35 @@ public class LibroData {
         }
         return libros; 
     }
+    
+        public Libro buscarLibroPorId(int id) {
+        Libro libro = null;
+        String sql = "SELECT * FROM libros WHERE idLibro = ? AND estado = 1";
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1,id );
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+            libro = new Libro();
+            libro.setIdLibro(id);
+            libro.setIsbn(rs.getInt("isbn"));
+            libro.setNombre(rs.getString("nombre"));
+            libro.setTipo(rs.getString("tipo"));
+            libro.setEditorial(rs.getString("editorial"));
+            libro.setAutor(rs.getString("autor"));
+            libro.setEstado(true);
+            libro.setAnio(rs.getInt("anio"));
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el libro");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Libro "+ex.getMessage());
+        }
+        return libro;
+    }
+    
     public void modificarLibro(Libro libro){
         String sql = "UPDATE libros SET isbn= ?, nombre= ?, tipo= ?, editorial= ?, autor= ?, estado= ?, anio= ?" + " WHERE idLibro=?";
         try {

@@ -37,9 +37,9 @@ public class LectorData {
         try {
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, lector.getNombre());
-            ps.setInt(2, lector.getDni());
+            ps.setString(2, lector.getDni());
             ps.setString(3, lector.getDomicilio());
-            ps.setObject(4, lector.getTelefono(), java.sql.Types.BIGINT);
+            ps.setString(4, lector.getTelefono());
             ps.setBoolean(5, lector.isEstado());
             ps.setString(6, lector.getMail());
             ps.executeUpdate();
@@ -64,9 +64,9 @@ public class LectorData {
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, lector.getNombre());
-            ps.setInt(2, lector.getDni());
+            ps.setString(2, lector.getDni());
             ps.setString(3, lector.getDomicilio());
-            ps.setObject(4, lector.getTelefono());
+            ps.setString(4, lector.getTelefono());
             ps.setBoolean(5, lector.isEstado());
             ps.setString(6,lector.getMail());
             ps.setInt(7, lector.getIdLector());
@@ -91,11 +91,9 @@ public class LectorData {
                 lector = new Lector();
                 lector.setIdLector(rs.getInt("idLector"));
                 lector.setNombre(rs.getString("nombre"));
-                lector.setDni(rs.getInt("dni"));
+                lector.setDni(rs.getString("dni"));
                 lector.setDomicilio(rs.getString("domicilio"));
-                BigDecimal telefonoDecimal = rs.getBigDecimal("telefono");
-                BigInteger telefonoInteger = telefonoDecimal.toBigInteger();
-                lector.setTelefono(telefonoInteger);
+                lector.setTelefono(rs.getString("telefono"));
                 lector.setEstado(true);
                 lector.setMail(rs.getString("mail"));
             } else {
@@ -120,11 +118,9 @@ public class LectorData {
                 lector = new Lector();
                 lector.setIdLector(rs.getInt("idLector"));
                 lector.setNombre(rs.getString("nombre"));
-                lector.setDni(rs.getInt("dni"));
+                lector.setDni(rs.getString("dni"));
                 lector.setDomicilio(rs.getString("domicilio"));
-                BigDecimal telefonoDecimal = rs.getBigDecimal("telefono");
-                BigInteger telefonoInteger = telefonoDecimal.toBigInteger();
-                lector.setTelefono(telefonoInteger);
+                lector.setTelefono(rs.getString("telefono"));
                 lector.setEstado(true);
                 lector.setMail(rs.getString("mail"));
             } else {
@@ -147,11 +143,9 @@ public class LectorData {
                 Lector lector = new Lector();
                 lector.setIdLector(rs.getInt("idLector"));
                 lector.setNombre(rs.getString("nombre"));
-                lector.setDni(rs.getInt("dni"));
+                lector.setDni(rs.getString("dni"));
                 lector.setDomicilio(rs.getString("domicilio"));
-                BigDecimal telefonoDecimal = rs.getBigDecimal("telefono");
-                BigInteger telefonoInteger = telefonoDecimal.toBigInteger();
-                lector.setTelefono(telefonoInteger);
+                lector.setTelefono(rs.getString("telefono"));
                 lector.setEstado(true);
                 lector.setMail(rs.getString("mail"));
                 lectores.add(lector);
@@ -161,5 +155,35 @@ public class LectorData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla libros "+ex.getMessage());
         }
         return lectores;
+    }
+    
+        public void desactivarLector(int id) {
+        try {
+            String sql = "UPDATE lector SET estado = 0 WHERE idLector = ? ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            int fila=ps.executeUpdate();
+            if(fila==1){
+                JOptionPane.showMessageDialog(null, "Se dio de baja al lector");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Lector" + ex.getMessage());
+        }
+    }
+    
+    public void activarLector(int id) {
+        try {
+            String sql = "UPDATE lector SET estado = 0 WHERE idLector = ? ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            int fila=ps.executeUpdate();
+            if(fila==1){
+                JOptionPane.showMessageDialog(null, "Se dio de baja al lector");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Lector" + ex.getMessage() );
+        }
     }
 }

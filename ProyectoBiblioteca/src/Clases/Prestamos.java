@@ -1,27 +1,44 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Clases;
 
 import java.time.LocalDate;
 
-
-public class prestamo {
+/**
+ *
+ * @author ariel
+ */
+public class Prestamos {
     private int idPrestamo;
-    private LocalDate fechaInicio;
-    private LocalDate fechaFin;
+    private LocalDate fechaInicio = LocalDate.now();
+    private LocalDate fechaFin = fechaInicio.plusWeeks(1);
     private int idLibro;
     private int dni;
     private boolean estado;
+    private Lector lector; 
+    private Ejemplar ejemplar; 
 
-    public prestamo() {
+    public Prestamos() {
     }
 
-    public prestamo(int idPrestamo, LocalDate fechaInicio, LocalDate fechaFin, int idLibro, int dni, boolean estado) {
-        this.idPrestamo = idPrestamo;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
+    public Prestamos(int idLibro, int dni, boolean estado, Lector lector, Ejemplar ejemplar) {
         this.idLibro = idLibro;
         this.dni = dni;
         this.estado = estado;
+        this.lector = lector;
+        this.ejemplar = ejemplar;
+    }
+
+    public Prestamos(int idPrestamo, int idLibro, int dni, boolean estado, Lector lector, Ejemplar ejemplar) {
+        this.idPrestamo = idPrestamo;
+        this.idLibro = idLibro;
+        this.dni = dni;
+        this.estado = estado;
+        this.lector = lector;
+        this.ejemplar = ejemplar;
     }
 
     public int getIdPrestamo() {
@@ -71,10 +88,27 @@ public class prestamo {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-    
-    @Override
-    public String toString() {
-        return "Prestamo{" + "idPrestamo=" + idPrestamo + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", idLobro=" + idLibro + ", dni=" + dni + ", estado=" + estado +'}';
+
+    public Lector getLector() {
+        return lector;
+    }
+
+    public void setLector(Lector lector) {
+        this.lector = lector;
+    }
+
+    public Ejemplar getEjemplar() {
+        return ejemplar;
+    }
+
+    public void setEjemplar(Ejemplar ejemplar) {
+        this.ejemplar = ejemplar;
     }
     
+    
+    
+    
+    
+    
 }
+
