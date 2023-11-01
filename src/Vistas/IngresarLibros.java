@@ -158,6 +158,11 @@ public class IngresarLibros extends javax.swing.JInternalFrame {
         jbNuevo.setBackground(new java.awt.Color(150, 186, 223));
         jbNuevo.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jbNuevo.setText("Nuevo ingreso");
+        jbNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -303,6 +308,11 @@ public class IngresarLibros extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
+    private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
+        // TODO add your handling code here:
+        limpiarCampos();
+    }//GEN-LAST:event_jbNuevoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -328,4 +338,15 @@ public class IngresarLibros extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtfNombre;
     private javax.swing.JTextField jtfTipo;
     // End of variables declaration//GEN-END:variables
+    private void limpiarCampos(){
+        jtfIsbn.setText("");
+        jtfNombre.setText("");
+        jtfTipo.setText("");
+        jtfEditorial.setText("");
+        jtfAutor.setText("");
+        jrbEstado.setSelected(false);
+        jtfAnio.setText("");
+        jtfEjemplares.setText("");    
+    }
+
 }

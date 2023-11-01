@@ -358,6 +358,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Nuevo ingreso"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbNuevoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
